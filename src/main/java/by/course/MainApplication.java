@@ -1,5 +1,7 @@
 package by.course;
 
+import by.course.data.NewsRepository;
+import by.course.data.NewsService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,5 +18,10 @@ public class MainApplication extends Application{
         primaryStage.setTitle("IT-news");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
+        new NewsRepository(new NewsService()).get("https://www.techradar.com/rss");
     }
 }
+
+
+// https://www.techradar.com/rss
