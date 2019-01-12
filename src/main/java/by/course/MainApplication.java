@@ -19,7 +19,7 @@ public class MainApplication extends Application{
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 
-        new NewsRepository(new NewsService()).get("https://www.techradar.com/rss");
+        new NewsRepository(new NewsService()).get("https://www.techradar.com/rss/news/computing");
     }
 }
 

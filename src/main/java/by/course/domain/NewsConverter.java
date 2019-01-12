@@ -9,18 +9,19 @@ import com.rometools.rome.feed.synd.SyndFeed;
 public class NewsConverter {
 
     public static NewsFeed from(SyndFeed syndFeed) {
-        NewsFeed newsFeed = new NewsFeed();
-        newsFeed.title = syndFeed.getTitle();
-        newsFeed.description = syndFeed.getDescription();
-        newsFeed.link = syndFeed.getLink();
-        newsFeed.imageUrl = syndFeed.getImage().getUrl();
-        newsFeed.feedType = syndFeed.getFeedType();
+        NewsFeed newsFeed = new NewsFeed()
+                .setTitle(syndFeed.getTitle())
+                .setDescription(syndFeed.getDescription())
+                .setImageUrl(syndFeed.getImage().getUrl())
+                .setLink(syndFeed.getLink())
+                .setFeedType(syndFeed.getFeedType());
 
         for (SyndEntry syndEntry : syndFeed.getEntries()) {
-            News news = new News();
-            news.link = syndEntry.getLink();
-            news.title = syndEntry.getTitle();
-            news.description = syndEntry.getDescription().getValue();
+            News news = new News()
+                    .setLink(syndEntry.getLink())
+                    .setTitle(syndEntry.getTitle())
+                    .setDescription(syndEntry.getDescription().getValue());
+            
             if (syndEntry.getEnclosures() != null && !syndEntry.getEnclosures().isEmpty())
                 news.imageUrl = syndEntry.getEnclosures().get(0).getUrl();
             if (syndEntry.getCategories() != null && !syndEntry.getCategories().isEmpty()) {
@@ -28,6 +29,8 @@ public class NewsConverter {
                 news.category = category.getName();
                 news.categoryUrl = category.getTaxonomyUri();
             }
+            if (syndEntry.getContents() != null && !syndEntry.getContents().isEmpty())
+                news.imageUrl = syndEntry.getContents().get(0).getValue();
             newsFeed.newsItems.add(news);
         }
         return new NewsFeed();

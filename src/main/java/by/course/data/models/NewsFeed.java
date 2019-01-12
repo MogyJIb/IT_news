@@ -58,47 +58,53 @@ public class NewsFeed {
         return title;
     }
 
-    public void setTitle(String title) {
+    public NewsFeed setTitle(String title) {
         this.title = title;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public NewsFeed setDescription(String description) {
         this.description = description;
+        return this;
     }
 
     public String getFeedType() {
         return feedType;
     }
 
-    public void setFeedType(String feedType) {
+    public NewsFeed setFeedType(String feedType) {
         this.feedType = feedType;
+        return this;
     }
 
     public String getLink() {
         return link;
     }
 
-    public void setLink(String link) {
+    public NewsFeed setLink(String link) {
         this.link = link;
+        return this;
     }
 
     public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public NewsFeed setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+        return this;
     }
 
     public List<News> getNewsItems() {
         return newsItems;
     }
 
-    public void setNewsItems(List<News> newsItems) {
+    public NewsFeed setNewsItems(List<News> newsItems) {
         this.newsItems = newsItems;
+        return this;
     }
 }
