@@ -26,7 +26,12 @@ public class NewsRowController extends AbstractController{
         news_title.setText(news.getTitle());
         news_description.setText(news.getDescription());
         news_content.getEngine().loadContent(news.getContent());
-        image_view.setImage(new Image(news.getImageUrl()));
+        try {
+            image_view.setImage(new Image(news.getImageUrl()));
+        }
+        catch (Exception exc) {
+            mainApplication.getProvider().logger().log(exc);
+        }
     }
 
 }

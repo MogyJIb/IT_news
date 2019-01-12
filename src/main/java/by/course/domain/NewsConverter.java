@@ -30,7 +30,7 @@ public class NewsConverter {
                 news.categoryUrl = category.getTaxonomyUri();
             }
             if (syndEntry.getContents() != null && !syndEntry.getContents().isEmpty())
-                news.imageUrl = syndEntry.getContents().get(0).getValue();
+                news.content = syndEntry.getContents().get(0).getValue();
             newsFeed.newsItems.add(news);
         }
         return newsFeed;

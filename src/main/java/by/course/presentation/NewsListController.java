@@ -26,7 +26,7 @@ public class NewsListController extends AbstractController {
 
         for(News news : newsList) {
             NewsRowController rowController =
-                    (NewsRowController) loadLayout("views/news_item_layout.fxml");
+                    (NewsRowController) loadLayout("/views/news_item_layout.fxml");
             rowController.setNewsData(news);
             list_container.getChildren().add(rowController.getReferenceOfThisLayout());
         }
