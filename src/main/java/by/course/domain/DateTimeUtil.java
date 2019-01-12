@@ -1,4 +1,4 @@
-package by.course.domain.utils;
+package by.course.domain;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;

@@ -11,12 +11,18 @@ import java.io.Reader;
 import java.net.URL;
 
 public class NewsService {
+    private NewsConverter newsConverter;
+
+    public NewsService(NewsConverter newsConverter) {
+        this.newsConverter = newsConverter;
+    }
+
     public NewsFeed get(String source) throws IOException, FeedException {
         Reader reader = new XmlReader(new URL(source));
         SyndFeedInput syndFeedInput = new SyndFeedInput();
         syndFeedInput.setAllowDoctypes(true);
         syndFeedInput.setXmlHealerOn(true);
         syndFeedInput.setPreserveWireFeed(true);
-        return NewsConverter.from(syndFeedInput.build(reader));
+        return newsConverter.from(syndFeedInput.build(reader));
     }
 }

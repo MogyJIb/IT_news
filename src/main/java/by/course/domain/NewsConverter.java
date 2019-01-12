@@ -8,7 +8,7 @@ import com.rometools.rome.feed.synd.SyndFeed;
 
 public class NewsConverter {
 
-    public static NewsFeed from(SyndFeed syndFeed) {
+    public NewsFeed from(SyndFeed syndFeed) {
         NewsFeed newsFeed = new NewsFeed()
                 .setTitle(syndFeed.getTitle())
                 .setDescription(syndFeed.getDescription())
@@ -21,7 +21,7 @@ public class NewsConverter {
                     .setLink(syndEntry.getLink())
                     .setTitle(syndEntry.getTitle())
                     .setDescription(syndEntry.getDescription().getValue());
-            
+
             if (syndEntry.getEnclosures() != null && !syndEntry.getEnclosures().isEmpty())
                 news.imageUrl = syndEntry.getEnclosures().get(0).getUrl();
             if (syndEntry.getCategories() != null && !syndEntry.getCategories().isEmpty()) {
@@ -33,6 +33,7 @@ public class NewsConverter {
                 news.imageUrl = syndEntry.getContents().get(0).getValue();
             newsFeed.newsItems.add(news);
         }
-        return new NewsFeed();
+        return newsFeed;
     }
+
 }

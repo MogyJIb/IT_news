@@ -1,7 +1,7 @@
 package by.course.data;
 
 import by.course.data.models.NewsFeed;
-import by.course.domain.utils.DateTimeUtil;
+import by.course.domain.DateTimeUtil;
 import com.rometools.rome.io.FeedException;
 
 import java.io.IOException;
