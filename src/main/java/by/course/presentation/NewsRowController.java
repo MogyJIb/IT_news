@@ -24,7 +24,6 @@ public class NewsRowController extends AbstractController{
     public void setNewsData(News news) {
         if (news == null) return;
         news_title.setText(news.getTitle());
-        news_description.setText(news.getDescription());
         news_content.getEngine().loadContent(news.getContent());
         try {
             image_view.setImage(new Image(news.getImageUrl()));
